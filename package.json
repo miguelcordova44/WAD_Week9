@@ -1,0 +1,36 @@
+{
+  "name": "qho540-week9-hittastic-architecture",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"tsx watch src/server/server.ts\" \"vite\"",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx src/server/server.ts",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0",
+    "express": "^5.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.34.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "tsx": "^4.20.5",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.41.0",
+    "vite": "^7.1.3"
+  }
+}

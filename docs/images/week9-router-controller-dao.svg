@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="520" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+  <title id="title">Week 9 Router Controller DAO Architecture</title>
+  <desc id="desc">Request travels from React through middleware, router, controller and DAO to SQLite, then returns as JSON.</desc>
+  <rect width="1400" height="520" rx="28" fill="#132f34"/>
+  <text x="70" y="72" fill="#ff745d" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="4">HITTASTIC REQUEST JOURNEY</text>
+  <text x="70" y="115" fill="#ffffff" font-family="Arial, sans-serif" font-size="32" font-weight="700">Router decides WHERE. Controller decides WHAT. DAO decides HOW.</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g transform="translate(60 180)"><rect width="180" height="160" rx="12" fill="#f7f3ec"/><text x="90" y="55" fill="#ee6b55" font-size="14" font-weight="700">BROWSER</text><text x="90" y="95" fill="#162b30" font-size="25" font-weight="700">React</text><text x="90" y="125" fill="#68777a" font-size="14">HTTP request</text></g>
+    <g transform="translate(280 180)"><rect width="180" height="160" rx="12" fill="#e8e3da"/><text x="90" y="55" fill="#ee6b55" font-size="14" font-weight="700">GATEKEEPER</text><text x="90" y="95" fill="#162b30" font-size="25" font-weight="700">Middleware</text><text x="90" y="125" fill="#68777a" font-size="14">checks + logs</text></g>
+    <g transform="translate(500 180)"><rect width="180" height="160" rx="12" fill="#f7f3ec"/><text x="90" y="55" fill="#ee6b55" font-size="14" font-weight="700">TRAFFIC DIRECTOR</text><text x="90" y="95" fill="#162b30" font-size="25" font-weight="700">Router</text><text x="90" y="125" fill="#68777a" font-size="14">WHERE?</text></g>
+    <g transform="translate(720 180)"><rect width="180" height="160" rx="12" fill="#e8e3da"/><text x="90" y="55" fill="#ee6b55" font-size="14" font-weight="700">MANAGER</text><text x="90" y="95" fill="#162b30" font-size="25" font-weight="700">Controller</text><text x="90" y="125" fill="#68777a" font-size="14">WHAT?</text></g>
+    <g transform="translate(940 180)"><rect width="180" height="160" rx="12" fill="#f7f3ec"/><text x="90" y="55" fill="#ee6b55" font-size="14" font-weight="700">DATABASE WORKER</text><text x="90" y="95" fill="#162b30" font-size="25" font-weight="700">DAO</text><text x="90" y="125" fill="#68777a" font-size="14">HOW?</text></g>
+    <g transform="translate(1160 180)"><rect width="180" height="160" rx="12" fill="#ff745d"/><text x="90" y="55" fill="#522219" font-size="14" font-weight="700">STORAGE</text><text x="90" y="95" fill="#ffffff" font-size="25" font-weight="700">SQLite</text><text x="90" y="125" fill="#ffe1db" font-size="14">music.db</text></g>
+  </g>
+  <g fill="#ff745d"><path d="M245 252h25v-10l14 18-14 18v-10h-25z"/><path d="M465 252h25v-10l14 18-14 18v-10h-25z"/><path d="M685 252h25v-10l14 18-14 18v-10h-25z"/><path d="M905 252h25v-10l14 18-14 18v-10h-25z"/><path d="M1125 252h25v-10l14 18-14 18v-10h-25z"/></g>
+  <path d="M1250 370v55H150v-55" fill="none" stroke="#8eadab" stroke-width="3" stroke-dasharray="9 8"/>
+  <path d="M150 425l18-10v20z" fill="#8eadab"/>
+  <text x="700" y="457" fill="#a9c0bd" font-family="Arial, sans-serif" text-anchor="middle" font-size="16" letter-spacing="2">DATA RETURNS AS A JSON RESPONSE</text>
+</svg>
