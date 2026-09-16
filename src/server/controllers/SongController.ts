@@ -6,12 +6,21 @@ const songDao = new SongDao();
 export class SongController {
   getAll(_request: Request, response: Response): void {
     // TODO Task 5: ask the DAO for songs, then decide the HTTP response.
-    response.json(songDao.getAll());
+    const songs = songDao.getAll();
+    response.status(200).json(songs);
   }
 
   findByArtist(request: Request, response: Response): void {
     // TODO Task 6: validate request.params.artist before calling the DAO.
-    const artist = typeof request.params.artist === 'string' ? request.params.artist : '';
-    response.json(songDao.findByArtist(artist));
+    const artist = typeof request.params.artist === 'string'
+      ? request.params.artist.trim()
+      : '';
+    if (!artist) {
+      response.status(400).json({ message: 'Please provide an artist.' });
+      return;
+    }
+
+    const songs = songDao.findByArtist(artist);
+    response.status(200).json(songs);
   }
 }

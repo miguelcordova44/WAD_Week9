@@ -309,11 +309,11 @@ Remove `useMemo` from the React import because it is no longer used. Type `Oasis
 
 Complete these sentences without looking back:
 
-- The Router decides **_____**.
-- The Controller decides **_____**.
-- The DAO decides **_____** to talk to the database.
-- Middleware acts like a **_____**.
-- `db.ts` provides one shared database **_____**.
+- The Router decides which controller function should run for a given URL and HTTP method.
+- The Controller decides what logic to perform and how to respond to the client.
+- The DAO decides how to access, query, and modify the database to talk to the database.
+- Middleware acts like a checkpoint or filter that runs before the controller.
+- `db.ts` provides one shared database connection instance.
 
 Answers: WHERE, WHAT, HOW, Gatekeeper, connection.
 
@@ -327,3 +327,35 @@ Answers: WHERE, WHAT, HOW, Gatekeeper, connection.
 - If the UI shows fallback songs, check the API terminal and open `/api/health`.
 - If TypeScript reports an unused import after Task 7, remove `useMemo`.
 - Delete `data/music.db` only if you intentionally want the starter to recreate and reseed it on the next launch.
+
+---
+
+## NEW CONTENT: Simple explanation of the API in everyday words
+
+This project is a small music app with a frontend and an API backend.
+
+- The browser asks for songs using a URL like `/api/songs`.
+- Express is the server that listens for those requests.
+- A router decides which part of the app should handle the request.
+- A controller decides what the request means and what response to send back.
+- A DAO is the part that talks to the database and gets the real data.
+- Middleware is like a helper that runs before the app handles the request, such as logging or login checks.
+
+So in very simple terms:
+
+- Router = where the request goes
+- Controller = what happens next
+- DAO = how the data is fetched
+- Middleware = checks before the request continues
+
+The app is split into small parts so it is easier to understand, fix, and grow later. This is the main learning idea of the API: each part has one job, and the request moves through the app in order.
+
+Think of it like this:
+
+1. The browser sends a request.
+2. The router decides where it should go.
+3. The controller decides what should happen.
+4. The DAO asks the database for the data.
+5. The server sends the result back as JSON.
+
+That is the main idea behind this API: small pieces, clear jobs, and one request moving through each layer in order.

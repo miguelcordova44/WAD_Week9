@@ -2,6 +2,7 @@ import express from 'express';
 import songRouter from './routes/songRoutes.js';
 import userRouter from './routes/userRoutes.js';
 // TODO Task 3: import the logger middleware from ./middleware/logger.js.
+import { logger } from './middleware/logger.js';
 
 const app = express();
 const port = 3000;
@@ -10,10 +11,7 @@ app.use(express.json());
 
 // This inline logger keeps the starter observable before Task 3.
 // TODO Task 3: remove this block and replace it with app.use(logger).
-app.use((request, _response, next) => {
-  console.log(`[starter] ${request.method} ${request.path}`);
-  next();
-});
+app.use(logger);
 
 app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok', message: 'HitTastic API is playing!' });

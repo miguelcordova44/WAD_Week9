@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Song } from '../shared/Song';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
@@ -18,22 +18,24 @@ export default function App() {
   const [status, setStatus] = useState('Connecting to the HitTastic API…');
 
   useEffect(() => {
-    fetch('/api/songs')
-      .then((response) => {
-        if (!response.ok) throw new Error('API response was not OK');
-        return response.json() as Promise<Song[]>;
-      })
-      .then((data) => {
-        setSongs(data);
-        setStatus(`${data.length} songs loaded through the starter architecture`);
-      })
-      .catch(() => setStatus('Showing safe starter songs — start the API to load SQLite data'));
-  }, []);
+    const timer = window.setTimeout(() => {
+      const path = query.trim()
+        ? `/api/songs/artist/${encodeURIComponent(query.trim())}`
+        : '/api/songs';
 
-  const visibleSongs = useMemo(
-    () => songs.filter((song) => song.artist.toLowerCase().includes(query.toLowerCase())),
-    [songs, query],
-  );
+      fetch(path)
+        .then((response) => response.json() as Promise<Song[]>)
+        .then((data) => {
+          setSongs(data);
+          setStatus(`${data.length} songs returned as JSON`);
+        })
+        .catch(() => setStatus('Could not reach the HitTastic API'));
+    }, 300);
+
+    return () => window.clearTimeout(timer);
+  }, [query]);
+
+  const visibleSongs = songs;
 
   return (
     <>
